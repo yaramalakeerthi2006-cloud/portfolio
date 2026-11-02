@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Your Name | Portfolio</title>
+<style>
+:root {
+  --bg: #0b1020;
+  --card: #141e33;
+  --text: #eef4ff;
+  --muted: #a9b7ce;
+  --teal: #77e0c3;
+  --border: #29364e;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; scroll-padding-top: 85px; }
+body {
+  font-family: Arial, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.7;
+}
+.container { width: 90%; max-width: 1050px; margin: auto; }
+header {
+  position: sticky; top: 0; z-index: 10;
+  background: #0b1020ee; border-bottom: 1px solid var(--border);
+}
+nav {
+  min-height: 70px; display: flex;
+  justify-content: space-between; align-items: center;
+}
+.logo { font-size: 1.3rem; font-weight: bold; }
+.logo span, h1 span { color: var(--teal); }
+nav ul { display: flex; gap: 20px; list-style: none; }
+nav a { color: var(--text); text-decoration: none; }
+nav a:hover { color: var(--teal); }
+#menu { display: none; }
+section { padding: 75px 0; }
+.hero {
+  min-height: 75vh; display: flex;
+  align-items: center; gap: 40px; justify-content: space-between;
+}
+.hero > div { flex: 1; }
+h1 { font-size: clamp(2.5rem, 6vw, 4.5rem); line-height: 1.15; margin: 18px 0; }
+h2 { font-size: 2rem; margin-bottom: 15px; }
+h3 { margin-bottom: 10px; }
+p { color: var(--muted); margin-bottom: 15px; }
+.eyebrow { color: var(--teal); font-weight: bold; }
+.card {
+  background: var(--card); border: 1px solid var(--border);
+  border-radius: 18px; padding: 25px;
+}
+.profile {
+  min-width: 230px; text-align: center;
+}
+.avatar {
+  width: 100px; height: 100px; margin: 0 auto 15px;
+  border-radius: 25px; display: grid; place-items: center;
+  background: var(--teal); color: var(--bg);
+  font-size: 2.5rem; font-weight: bold;
+}
+.btn {
+  display: inline-block; padding: 11px 17px;
+  border-radius: 9px; border: 1px solid var(--teal);
+  background: var(--teal); color: #08151a;
+  font-weight: bold; text-decoration: none; cursor: pointer;
+  margin: 5px 5px 5px 0;
+}
+.btn.secondary { background: transparent; color: var(--teal); }
+.grid { display: grid; gap: 18px; grid-template-columns: repeat(3, 1fr); }
+.skill { text-align: center; }
+.skill span { font-size: 2rem; display: block; }
+.project { transition: transform .2s; }
+.project:hover { transform: translateY(-4px); }
+.tag {
+  display: inline-block; color: var(--teal);
+  background: #77e0c318; border-radius: 20px;
+  padding: 4px 10px; margin: 4px 3px 0 0; font-size: .85rem;
+}
+ul.details { padding-left: 22px; color: var(--muted); }
+form { display: grid; gap: 13px; }
+label { display: block; margin-bottom: 4px; }
+input, textarea {
+  width: 100%; padding: 12px; border-radius: 8px;
+  border: 1px solid var(--border); background: var(--bg);
+  color: var(--text); font: inherit;
+}
+textarea { min-height: 120px; resize: vertical; }
+footer {
+  padding: 25px 0; text-align: center;
+  border-top: 1px solid var(--border);
+}
+@media(max-width: 720px) {
+  .hero { flex-direction: column; align-items: stretch; padding-top: 55px; }
+  .grid { grid-template-columns: repeat(2, 1fr); }
+  #menu {
+    display: block; background: transparent; color: var(--text);
+    border: 1px solid var(--border); border-radius: 8px;
+    padding: 8px 12px; font-size: 1.2rem;
+  }
+  nav ul {
+    display: none; position: absolute; top: 70px;
+    left: 0; right: 0; padding: 20px 5%;
+    background: var(--bg); flex-direction: column;
+  }
+  nav ul.open { display: flex; }
+}
+@media(max-width: 450px) {
+  .grid { grid-template-columns: 1fr; }
+  section { padding: 55px 0; }
+}
+@media print {
+  header, .btn, form, .no-print { display: none !important; }
+  body { background: white; color: black; }
+  .card { background: white; color: black; border: 1px solid #ccc; }
+  p, ul.details { color: #333; }
+}
+</style>
+</head>
+<body>
+
+<header>
+  <nav class="container">
+    <a href="#home" class="logo">Your<span>Portfolio.</span></a>
+    <button id="menu" aria-label="Toggle navigation"
+      aria-expanded="false">☰</button>
+    <ul id="navLinks">
+      <li><a href="#home">Home</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#education">Education</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main>
+<section id="home" class="container hero">
+  <div>
+    <span class="eyebrow">COLLEGE STUDENT</span>
+    <h1>Hello, I'm <span>Your Name.</span></h1>
+    <h2>Aspiring Software Developer</h2>
+    <p>
+      I am a student passionate about programming and web development.
+      I enjoy learning new technologies, solving problems, and creating
+      useful websites.
+    </p>
+    <a class="btn" href="#projects">View My Projects</a>
+    <a class="btn secondary" href="#contact">Contact Me</a>
+    <button class="btn secondary" onclick="window.print()">
+      Print / Save as PDF
+    </button>
+  </div>
+  <div class="card profile">
+    <div class="avatar">YN</div>
+    <h2>Your Name</h2>
+    <p>Student | Future Software Developer</p>
+    <span class="tag">Always Learning</span>
+  </div>
+</section>
+
+<section id="about">
+  <div class="container">
+    <h2>About Me</h2>
+    <div class="card">
+      <p>
+        I am a college student working toward becoming a software developer.
+        I am learning HTML, CSS, JavaScript, Python, and SQL.
+        I want to strengthen my technical skills by building practical
+        projects and continuously improving my problem-solving ability.
+      </p>
+      <h3>My Goals</h3>
+      <ul class="details">
+        <li>Build responsive and accessible websites.</li>
+        <li>Improve programming and problem-solving skills.</li>
+        <li>Learn backend development and databases.</li>
+        <li>Prepare for software development internships and jobs.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section id="skills">
+  <div class="container">
+    <h2>My Skills</h2>
+    <p>Technologies I am currently learning and practising.</p>
+    <div class="grid">
+      <div class="card skill"><span>🌐</span><h3>HTML</h3><p>Web structure</p></div>
+      <div class="card skill"><span>🎨</span><h3>CSS</h3><p>Styling and layout</p></div>
+      <div class="card skill"><span>⚡</span><h3>JavaScript</h3><p>Web interactivity</p></div>
+      <div class="card skill"><span>🐍</span><h3>Python</h3><p>Programming basics</p></div>
+      <div class="card skill"><span>🗄️</span><h3>SQL</h3><p>Database queries</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="projects">
+  <div class="container">
+    <h2>My Projects</h2>
+    <p>Replace these examples with your completed projects as you build them.</p>
+    <div class="grid">
+      <article class="card project">
+        <h3>Personal Portfolio</h3>
+        <p>A responsive website introducing me, my skills, and my goals.</p>
+        <span class="tag">HTML</span><span class="tag">CSS</span>
+        <span class="tag">JavaScript</span>
+      </article>
+      <article class="card project">
+        <h3>To-Do List App</h3>
+        <p>A task manager for adding, completing, and deleting tasks.</p>
+        <span class="tag">HTML</span><span class="tag">CSS</span>
+        <span class="tag">JavaScript</span>
+      </article>
+      <article class="card project">
+        <h3>Expense Tracker</h3>
+        <p>A simple application to record expenses and calculate totals.</p>
+        <span class="tag">JavaScript</span><span class="tag">LocalStorage</span>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section id="education">
+  <div class="container">
+    <h2>Education</h2>
+    <div class="card">
+      <h3>[Your Degree / Course]</h3>
+      <p>[Your College Name]</p>
+      <p>Expected graduation: [Year]</p>
+      <h3>Additional Learning</h3>
+      <p>Web development, Python programming, SQL, and problem-solving.</p>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="container">
+    <h2>Contact Me</h2>
+    <div class="grid" style="grid-template-columns:repeat(auto-fit,minmax(260px,1fr))">
+      <div class="card">
+        <h3>Let's Connect</h3>
+        <p>Email: your.email@example.com</p>
+        <p>GitHub: [Your GitHub URL]</p>
+        <p>LinkedIn: [Your LinkedIn URL]</p>
+        <p>Replace these placeholders with your actual details.</p>
+      </div>
+      <div class="card">
+        <form id="contactForm">
+          <div>
+            <label for="visitorName">Your Name</label>
+            <input id="visitorName" required placeholder="Enter your name">
+          </div>
+          <div>
+            <label for="visitorEmail">Your Email</label>
+            <input id="visitorEmail" type="email" required placeholder="Enter your email">
+          </div>
+          <div>
+            <label for="message">Message</label>
+            <textarea id="message" required placeholder="Write your message"></textarea>
+          </div>
+          <button class="btn" type="submit">Prepare Email</button>
+          <p>This form opens your email application. It does not send messages automatically.</p>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="container">
+    <p>© <span id="year"></span> Your Name. Built with HTML, CSS and JavaScript.</p>
+    <a href="#home" style="color:var(--teal)">Back to Top ↑</a>
+  </div>
+</footer>
+
+<script>
+const menu = document.getElementById("menu");
+const navLinks = document.getElementById("navLinks");
+
+menu.addEventListener("click", () => {
+  const open = navLinks.classList.toggle("open");
+  menu.setAttribute("aria-expanded", String(open));
+  menu.textContent = open ? "✕" : "☰";
+});
+
+navLinks.querySelectorAll("a").forEach(link => {
+  link.addEventListener("click", () => {
+    navLinks.classList.remove("open");
+    menu.setAttribute("aria-expanded", "false");
+    menu.textContent = "☰";
+  });
+});
+
+document.getElementById("year").textContent = new Date().getFullYear();
+
+document.getElementById("contactForm").addEventListener("submit", event => {
+  event.preventDefault();
+
+  // Replace with your actual email address.
+  const recipient = "your.email@example.com";
+  const name = document.getElementById("visitorName").value.trim();
+  const email = document.getElementById("visitorEmail").value.trim();
+  const message = document.getElementById("message").value.trim();
+
+  const subject = encodeURIComponent("Portfolio message from " + name);
+  const body = encodeURIComponent(
+    "Name: " + name + "\nEmail: " + email + "\n\n" + message
+  );
+
+  window.location.href =
+    "mailto:" + recipient + "?subject=" + subject + "&body=" + body;
+});
+</script>
+</body>
+</html>
